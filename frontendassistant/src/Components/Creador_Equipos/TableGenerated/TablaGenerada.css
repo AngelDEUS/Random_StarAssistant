@@ -1,0 +1,221 @@
+.TablaGenerada_MAIN {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*--------- HEADER ---------*/
+
+
+
+.Header_TabGen,
+.Header_TabGen2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 40px;
+    border-radius: 50px;
+}
+
+.Header_TabGen {
+    padding: 30px 80px;
+}
+
+.borderTable_SS {
+    border: 1px solid var(--TxT-Color-08-White);
+}
+
+.leftHeader_Tab {
+    display: flex;
+    gap: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.ColorGreen {
+    color: var(--TxT-Color-01);
+}
+
+.sepVer_TableGen {
+    width: 2px;
+    height: 35px;
+    background-color: var(--Separador-BG);
+}
+
+.InfoHeader_TabGen {
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.Text_Count_Header {
+    color: var(--TxT-Color-01);
+    margin-left: 10px;
+}
+
+.ResumenHeader {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+}
+
+.sepDot3 {
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    color: var(--TxT-Color-01);
+    margin-top: 15px;
+    font-size: 30px;
+}
+
+
+/*Butons*/
+.buttons_Header_TabGen {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.btnHeader_TabGen {
+    border: none;
+    padding: 17px;
+    border-radius: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: var(--TxT-Color-01);
+    transition: opacity 0.2s ease, box-shadow .3s ease;
+}
+
+.btnHeader_TabGen:hover {
+    box-shadow: 0 0 40px #b7ff3070;
+}
+
+.btnHeader_TabGen:active {
+    opacity: 70%;
+}
+
+/*----------------------- CUERPO -----------------------*/
+
+.Content_TablaGenerated {
+    padding: 30px;
+    border: 1px solid var(--TxT-Color-08-White);
+    border-radius: 50px;
+}
+
+.tablaGenerada_Cuerpo {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    background-color: var(--GenTab-BG-01);
+    padding: 20px;
+    border-radius: 50px;
+}
+
+.tableGenerated_Inside {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--GenTab-BG-02);
+    padding: 20px;
+    border-radius: 50px;
+}
+
+.topGenerated {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.leftGenTab,
+.RightGenTab {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.infoContainerSS {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--TxT-Color-08-White);
+    border-radius: 15px;
+    overflow: hidden;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.sepVertical_SS {
+    width: 1px;
+    height: 54px;
+    background-color: var(--Separador-BG);
+    overflow: hidden;
+}
+
+.Tittle_Container {
+    display: flex;
+    padding: 15px 0;
+    background-color: var(--GenTab-BG-03);
+}
+
+.text_SS {
+    padding: 0 30px;
+    font-size: 15px;
+}
+
+/*----------- Middle Center -----------*/
+.SepEquipo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    font-size: 15px;
+    gap: 10px;
+}
+
+.textSepEquip {
+    display: flex;
+    color: var(--TxT-Color-01);
+    white-space: nowrap;
+}
+
+.lineSEP_GEN {
+    flex: 1;
+    height: 1px;
+    background-color: var(--TxT-Color-08-White);
+}
+
+/* Lider */
+.liderContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 100px;
+}
+
+/*---------------- Tabla Generada ----------------*/
+.Table_Equipo_Content {
+    display: flex;
+    width: 100%;
+}
+
+.TableGen_Equipo {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+    text-align: left;
+}
+
+.TableRouw_Tittles {
+    color: var(--TxT-Color-08-White);
+}
+
+.TableGen_Equipo th,
+.TableGen_Equipo td {
+    padding: 5px;
+}
+
+.numberColumn {
+    color: var(--TxT-Color-01);
+    width: 60px;
+}

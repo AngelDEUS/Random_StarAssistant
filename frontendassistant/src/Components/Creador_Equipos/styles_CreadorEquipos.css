@@ -1,0 +1,381 @@
+/* MainContent.css */
+.main-content {
+    padding: 20px;
+}
+
+.form-section {
+    background: rgb(216, 233, 168);
+    background: linear-gradient(126deg, rgba(216, 233, 168, 1) 0%, rgba(255, 255, 255, 1) 27%, rgba(255, 255, 255, 1) 80%, rgba(241, 255, 203, 1) 100%);
+    color: var(--TxT-Color-02);
+    padding: 20px 30px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+.form-container {
+    display: flex;
+    gap: 20px;
+    color: var(--TxT-Color-03);
+    background: rgb(29, 36, 15);
+    background: linear-gradient(145deg, rgba(29, 36, 15, 1) 0%, rgba(8, 8, 7, 1) 40%);
+    border-radius: 50px;
+    padding: 20px 30px;
+}
+
+.form-left {
+    flex: 1;
+}
+
+.form-right {
+    flex: 2;
+}
+
+.form-item_tittle {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.separadorItem-Form {
+    width: 100%;
+    height: 2px;
+    background-color: var(--Separador-BG);
+    margin-top: 10px;
+}
+
+.tittle_Input-form {
+    font-size: 20px;
+    color: var(--TxT-Color-03);
+    margin-bottom: 5px;
+}
+
+.sub_tittle_Input-form {
+    font-size: 12px;
+    color: var(--TxT-Color-04);
+}
+
+/* Header Creador de equipos*/
+
+.header_CreadorEq {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_left-CreaEq {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Tittle_CreadorEquipos {
+    font-size: 30px;
+    margin: 0;
+    color: var(--TxT-Color-02);
+}
+
+.Descripcion_CreadorEquipos {
+    font-size: 12px;
+    margin: 0;
+    margin-bottom: 20px;
+    color: var(--TxT-Color-02);
+    width: 80%;
+}
+
+.cursHeader_CreaEq{
+    color: var(--TxT-Color-05);
+    font-style: italic;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.cursHeader_CreaEq:hover{
+    opacity: 50%;
+}
+
+.cursHeader_CreaEq:active{
+    opacity: 100%;
+}
+
+.header_right-CreaEq {
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Boton*/
+.btn_borrar_Table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--TxT-Color-03);
+    font-size: 15px;
+    background-color: var(--BG-Table-Inside-1);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.iconContainer_borrarBTN {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--TxT-Color-02);
+    padding: 5px 13px;
+
+    background: rgb(216, 233, 168);
+    background: linear-gradient(152deg, rgba(216, 233, 168, 1) 0%, rgba(255, 255, 255, 1) 68%);
+
+    border-radius: 30px;
+}
+
+.sep_mini-borrar {
+    width: 1px;
+    height: 15px;
+    background-color: var(--Separador-BG);
+    margin: 0 10px;
+}
+
+.btnText_borrar {
+    font-weight: 600;
+    margin-right: 2px;
+}
+
+.btn_borrar_Table:hover {
+    opacity: 88%;
+}
+
+.btn_borrar_Table:active {
+    opacity: 100%;
+}
+
+/*--------------------------------------*/
+
+/* LEFT*/
+.form-right{
+    border-radius: 50px;
+    border: 1px solid var(--Separador-BG);
+}
+.form-item_right,
+.form-item_right-Hours {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 58px;
+    margin: 20px;
+    padding: 10px;
+    background-color: var(--Inside-Input-01);    
+    border-radius: 50px;
+    color: var(--TxT-Color-05);
+    border: 1px solid var(--Inside-Input-Border-01);
+    font-size: 15px;
+}
+
+.form-item_right-Hours{
+    display: flex;
+    gap: 10px;
+}
+
+.inputsHoraFecha{
+    display: flex;
+}
+
+.sepHoraFecha{
+    color: var(--TxT-Color-05);
+    margin: 0 5px;
+}
+
+/*Inputs*/
+.form-item_right-Hours .inputsHoraFecha input{
+    display: flex;
+    text-align: center;
+    width: 70px;
+    background-color: transparent; 
+    outline: none;
+    border: none;
+    color: var(--Input-txt-color-02);
+
+}
+
+
+.form-item_right-Hours .inputsHoraFecha input::placeholder{
+    color: var(--TxT-Color-05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Otors inputs */
+.form-item_right input::placeholder{
+    color: var(--TxT-Color-05);
+}
+.form-item_right{
+    align-items: center;
+    justify-content: center;
+}
+.form-item_right input{
+    text-align: center;
+    background-color: transparent; 
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 20px;
+    border-radius: 15px;
+    color: var(--Input-txt-color-02);
+
+}
+/*--------------------------------------*/
+.progress-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.allMessage_Content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0 40px 0;
+    width: 100%;
+}
+
+.pointsMessage_Content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.progress-steps {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    background-color: transparent;
+}
+
+.sepMessage_Progress {
+    width: 100%;
+    height: 2px;
+    margin-left: 20px;
+    background-color: var(--Alert-BG-01);
+}
+
+.messageCube {
+    width: 400px;
+    line-height: 1;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    border: 2px solid var(--Alert-BG-01);
+    border-radius: 50px;
+    padding: 15px 25px;
+}
+
+.Tittle_TextMessage, .TextMessage {
+    margin: 0;
+    padding: 0;
+}
+
+.Tittle_TextMessage {
+    margin-bottom: 10px;
+    color: var(--TxT-Color-03);
+    font-size: 20px;
+}
+
+.TextMessage {
+    color: var(--TxT-Color-04);
+    font-size: 13px;
+}
+
+/*---------*/
+
+.step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--Alert-BG-01);
+    border-radius: 50%;
+    font-size: 20px;
+    color: #000;
+    line-height: 1;
+    display: inline-flex;
+}
+
+.step.active {
+    background-color: var(--TxT-Color-01);
+    color: var(--TxT-Color-06);
+}
+
+.step i {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    display: inline-flex;
+}
+
+.cicleDIv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 1;
+    display: inline-flex;
+    border: 2px solid var(--Alert-BG-01);
+}
+
+.cicleDIv.activeCircle {
+    border: 2px solid var(--Alert-BG-02);
+}
+
+/* Botón --------------> */
+
+.create-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin-top: 30px;
+    padding: 15px 30px;
+    border: none;
+    background-color: var(--Alert-BG-02);
+    cursor: pointer;
+    color: var(--TxT-Color-02);
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 0 30px var(--TxT-Color-07);
+    transition: background-color 0.2s ease, box-shadow .3s ease;
+}
+
+.create-button:hover{
+    box-shadow: 0 0 40px 5px var(--TxT-Color-07);
+}
+.create-button:active{
+    box-shadow: 0 0 40px #b7ff30c5;
+    background-color: #b2ff22;
+}
+
+
+.create-button i {
+    margin-right: 10px;
+}
+
+.abajo_button-CrearGrupo{
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    font-size: 40px;
+    color: var(--TxT-Color-01); 
+}

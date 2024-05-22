@@ -1,0 +1,91 @@
+/* Footer.css */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Footer-BG-01);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 120px;
+}
+
+.footer-column {
+    text-align: left;
+    display:flex;
+    flex-direction: column;
+}
+
+.footer-column h3 {
+    margin-bottom: 5px;
+    color: var(--TxT-Color-01);
+    font-size: 15px;
+}
+.footer-column p {
+    margin-bottom: 5px;
+    color: var(--TxT-Color-03);
+    font-size: 13px;
+}
+
+
+
+.divisorFooter {
+    width: 97%;
+    height: 2px;
+    background-color: var(--TxT-Color-01);
+    margin: 10px 0 20px 0;
+}
+
+.SocialNetWorks_Footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.iconsFooter {
+    color: var(--TxT-Color-03);
+    font-size: 27px;
+    gap: 50px;
+}
+
+.iconsFooter i {
+    margin-right: 40px;
+}
+
+.textCopyFooter {
+    margin-right: 20px;
+    color: var(--TxT-Color-03);
+    opacity: .2;
+    font-size: 13px;
+}
+
+.nada {
+    width: 280px;
+}
+
+.colorMark_Footer {
+    color: var(--TxT-Color-01);
+}
+
+.logoFooter{
+    width: auto;
+    height: 40px;
+    margin: 0;
+}
+
+.textLogo_Footer{
+    margin-top: 5px;    
+    line-height: 1;
+}
+
+.LogoColumn_Footer{
+    display: block;
+    width: 300px;
+    font-size: 13px;
+}

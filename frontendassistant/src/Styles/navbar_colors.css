@@ -1,0 +1,46 @@
+:root {
+
+    /*Gradient*/
+    --BG-Color-Gradient-1: #1d240f;
+    --BG-Color-Gradient-2: #080807;
+    /*Gradients Table generator*/
+    --BG-Gradient-Color-1: #d8e9a8;
+    --BG-Gradient-Color-2: #ffffff;
+    --BG-Gradient-Color-3: #f1ffcb;
+
+    /*BGS Table generator*/
+    --BG-Table-Inside-1: #080807;
+    --BG-Table-Inside-2: #1d230f;
+    --Inside-Input-01: #12160b;
+    --Inside-Input-Border-01: #3c462a;
+    --Input-txt-color-01: #546339;
+    --Input-txt-color-02: #aab1a6;
+    --Input-txt-color-03: rgb(255, 255, 255);
+    --Input-txt-color-04: rgba(255, 255, 255, 0.30);
+
+    --BG-Color-NavBar-1: #08080731;
+
+    /*Separador*/
+    --Separador-BG: rgba(255, 255, 255, 0.10);
+
+    /* Colors texts */
+    --TxT-Color-01: #beff42;
+    --TxT-Color-02: #080807;
+    --TxT-Color-03: #ffffff;
+    --TxT-Color-04: #aab1a6;
+    --TxT-Color-05: #738a38;
+    --TxT-Color-06: #232b11;
+    --TxT-Color-07: #738a38a2;
+    --TxT-Color-08-White: rgba(255, 255, 255, 0.20);
+
+    --Alert-BG-01: #393a39;
+    --Alert-BG-02: #beff42;
+
+    /* FOOTER */
+    --Footer-BG-01: #111210;
+
+    /* TableGenerated */
+    --GenTab-BG-01: #1a1e15;
+    --GenTab-BG-02: #080807;
+    --GenTab-BG-03: #151514;
+}

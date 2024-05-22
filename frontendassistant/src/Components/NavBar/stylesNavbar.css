@@ -1,0 +1,114 @@
+@import url(../../Styles/navbar_colors.css);
+
+.header_NavBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--BG-Color-NavBar-1);
+    font-size: 13px;
+}
+
+.contentNavBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 110px 5px 110px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.separador_Navbar {
+    width: 95%;
+    height: 1px;
+    border-radius: 15px;
+    background-color: var(--Separador-BG);
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+.logo {
+    margin: 0;
+    color: var(--TxT-Color-01);
+    display: flex;
+    align-items: center;
+}
+
+.logoNavbar {
+    width: auto;
+    height: 50px;
+    filter: drop-shadow(0 0px 15px rgba(255, 255, 255, 0.4));
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.navigation {
+    display: flex;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.navigation ul .textButtons_NavBar {
+    color: var(--TxT-Color-03);
+    display: inline;
+    text-decoration: none;
+
+}
+
+li {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nonSelect {
+    color: #ffffff9a;
+}
+
+.como_usar {
+    color: var(--TxT-Color-01);
+}
+
+.inicioNav:hover,
+.nonSelect:hover,
+.como_usar:hover {
+    opacity: 70%;
+}
+
+.inicioNav:active,
+.nonSelect:active,
+.como_usar:active {
+    opacity: 100%;
+}
+
+.generate-button {
+    background-color: var(--TxT-Color-01);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: var(--TxT-Color-02);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 0 0 20px #99ff008e;
+    transition: opacity 0.3s ease, box-shadow .3s ease;
+    opacity: 1;
+}
+
+.generate-button:hover {
+    box-shadow: 0 0 35px #99ff0085;
+}
+
+.generate-button:active {
+    opacity: 70%;
+}
+
+.generate-button i {
+    margin-right: 8px;
+}
