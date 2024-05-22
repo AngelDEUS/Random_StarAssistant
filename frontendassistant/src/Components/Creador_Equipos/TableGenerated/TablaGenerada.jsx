@@ -1,5 +1,7 @@
 import React from 'react'
 import './TablaGenerada.css'
+// Rama Angel_tables
+
 
 const TablaGenerada = () => {
     return (
