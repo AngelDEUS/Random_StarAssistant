@@ -14,7 +14,7 @@ const NavBar = () => {
                     <ul>
                         <li className='inicioNav'>Inicio</li>
                         <li className='nonSelect'>Generar tabla</li>
-                        <li className='nonSelect'>Resultado</li>
+                        <li className='nonSelect'>Gestión de Empleados</li>
                         <li className='como_usar'>¿Cómo usar?</li>
                     </ul>
                 </nav>
