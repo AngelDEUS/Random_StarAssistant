@@ -2,6 +2,7 @@
 import React from 'react';
 import './stylesNavbar.css';
 import LogoNavbar from '../../Assets/Logo+Text.png';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
@@ -12,10 +13,27 @@ const NavBar = () => {
                 </div>
                 <nav className="navigation">
                     <ul>
-                        <li className='inicioNav'>Inicio</li>
-                        <li className='nonSelect'>Generar tabla</li>
-                        <li className='nonSelect'>Gestión de Empleados</li>
-                        <li className='como_usar'>¿Cómo usar?</li>
+                        <li className='inicioNav'>
+                            <Link to='/inicio'>
+                                Inicio
+                            </Link>
+                        </li>
+                        <li className='nonSelect'>
+                            <Link to='/creadorequipos'>
+                                Generar tabla
+                            </Link>
+                        </li>
+                        <li className='nonSelect'>
+                            <Link to='/gestionusuarios'>
+                                Gestión de Empleados
+                            </Link>
+                        </li>
+                        <li className='como_usar'>
+                            <Link to='/comousar'>
+                                ¿Cómo usar?
+                            </Link>
+                        </li>
+
                     </ul>
                 </nav>
                 <button className="generate-button"><i className="bi bi-table"></i> Generar Tabla</button>

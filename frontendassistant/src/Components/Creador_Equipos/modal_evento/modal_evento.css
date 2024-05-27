@@ -1,4 +1,4 @@
-.conainer_Modal{
+.conainer_Modal {
     background-color: var(--Modal-BG-2);
     backdrop-filter: blur(1rem);
     position: fixed;
@@ -12,10 +12,10 @@
     cursor: pointer;
 }
 
-.modal_center{
+.modal_center {
     display: flex;
     flex-direction: column;
-    width: 600px;
+    width: 500px;
     padding: 20px;
     border: 2px solid var(--Separador-BG);
     border-radius: 15px;
@@ -23,15 +23,17 @@
     cursor: default;
 }
 
-.up_modal{
+.up_modal {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: center;
+    text-wrap:wrap;
+    overflow: hidden;
 }
 
-.title_modal_h3{
+.title_modal_h3 {
     margin: 0;
     padding: 0;
     color: var(--TxT-Color-01);
@@ -40,12 +42,12 @@
     text-transform: uppercase;
 }
 
-.span_modal_text{
+.span_modal_text {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.4);
 }
 
-.modal_divisor{
+.modal_divisor {
     width: 100%;
     height: 1px;
     background-color: var(--Separador-BG);
@@ -53,26 +55,65 @@
 }
 
 /* Cuerpo modal ------------*/
-.cuerpo_modal{
+.cuerpo_modal {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.checkButtons_modal{
+.checkButtons_modal {
     display: flex;
     flex-direction: column;
 }
 
+.radioLabel {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 16px;
+    color: var(--TxT-Color-01);
+    cursor: pointer;
+}
+
+.opModalEvento {
+    display: none;
+}
+
+.customRadio {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--TxT-Color-01);
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.customRadio::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--TxT-Color-01);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease;
+}
+
+.opModalEvento:checked + .customRadio::after {
+    transform: translate(-50%, -50%) scale(1);
+}
 
 /*Bottom------------->*/
-.bottom_modal{
+.bottom_modal {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.buttons_modal{
+.buttons_modal {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -87,7 +128,7 @@
     color: var(--TxT-Color-05);
     font-size: 13px;
     cursor: pointer;
-    transition: opacity 0.27s ease, box-shadow 0.3s ease ;
+    transition: opacity 0.27s ease, box-shadow 0.3s ease;
 }
 
 .escoger_mdl {
@@ -95,6 +136,7 @@
     color: var(--TxT-Color-02);
     box-shadow: 0 0 30px #99ff0067;
 }
+
 .cancelar_mdl {
     background-color: var(--Inside-Input-Border-01);
     box-shadow: 0 0 20px #3c462a;
@@ -110,6 +152,7 @@
     opacity: 100%;
     box-shadow: 0 0 35px rgba(67, 97, 25, 0.774);
 }
+
 .escoger_mdl:active {
     opacity: 100%;
     box-shadow: 0 0 35px #99ff0060;

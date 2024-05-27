@@ -3,17 +3,25 @@ import './MainLayout_styles.css'
 import NavBar from '../NavBar/NavBar_Main'
 import FooterMain from '../Footer/Footer_Main'
 import CreadorEquipos from '../Creador_Equipos/CreadorDeEquipos'
-import Modal_evento from '../Creador_Equipos/modal_evento/modal_evento'
+import HomePage from '../Home/home_page'
+import GestionUsuarios from '../Gestion_de_Usuarios/MainGestionUsuarios'
+import { Route, Routes } from 'react-router-dom'
+import ComoUsar from '../comousar/ComoUsar'
 
 const MainLayout = () => {
     return (
         <div>
-            <Modal_evento />
             <div className="NavBar_Layout">
                 <NavBar />
             </div>
             <div className="ContentCenter_Layout">
-                <CreadorEquipos />
+                <Routes>
+                    <Route path='/' element={<HomePage/>}/>
+                    <Route path='/inicio' element={<HomePage/>}/>
+                    <Route path='/creadorequipos' element={<CreadorEquipos/>}/>
+                    <Route path='/gestionusuarios' element={<GestionUsuarios/>}/>
+                    <Route path='/comousar' element={<ComoUsar/>}/>
+                </Routes>
             </div>
             <div className="Footer_Layout">
                 <FooterMain />

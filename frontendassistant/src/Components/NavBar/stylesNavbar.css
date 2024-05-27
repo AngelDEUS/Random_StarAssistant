@@ -1,5 +1,12 @@
 @import url(../../Styles/navbar_colors.css);
 
+
+a {
+    font-style: normal;
+    text-decoration: none;
+    color: inherit;
+}
+
 .header_NavBar {
     display: flex;
     flex-direction: column;

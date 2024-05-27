@@ -2,6 +2,12 @@ import React from 'react'
 import './modal_evento.css'
 
 const Modal_evento = () => {
+
+    const lista_Eventos = ['Conferencia','sociales', 
+    'administración central y/o local', 'deportivos', 
+    'empresa y corporativos', 'causa y de recaudación de fondos', 
+    'Espectáculos y eventos de ocio', 'Reuniones o convenciones']
+
     return (
         <div className='conainer_Modal'>
             <div className="modal_center">
@@ -13,8 +19,13 @@ const Modal_evento = () => {
                 <div className="cuerpo_modal">
                     <div className="modal_divisor"></div>
                     <div className="checkButtons_modal">
-                        <span className=''>opcion 1</span>
-                        <span className=''>opcion 1</span>
+                        {lista_Eventos.map((evento, index) => (
+                            <label key={index} className="radioLabel">
+                                <input type="radio" name="tipo_evento" value={evento} className="opModalEvento" />
+                                <span className="customRadio"></span>
+                                {evento}
+                            </label>
+                        ))}
                     </div>
                 </div>
                 <div className="bottom_modal">
