@@ -1,0 +1,116 @@
+.conainer_Modal{
+    background-color: var(--Modal-BG-2);
+    backdrop-filter: blur(1rem);
+    position: fixed;
+    z-index: 100;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.modal_center{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    padding: 20px;
+    border: 2px solid var(--Separador-BG);
+    border-radius: 15px;
+    background-color: var(--Modal-BG-1);
+    cursor: default;
+}
+
+.up_modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.title_modal_h3{
+    margin: 0;
+    padding: 0;
+    color: var(--TxT-Color-01);
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.span_modal_text{
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.modal_divisor{
+    width: 100%;
+    height: 1px;
+    background-color: var(--Separador-BG);
+    margin: 20px 0;
+}
+
+/* Cuerpo modal ------------*/
+.cuerpo_modal{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.checkButtons_modal{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*Bottom------------->*/
+.bottom_modal{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.buttons_modal{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btn_Modal_ {
+    align-items: center;
+    text-align: center;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: var(--TxT-Color-05);
+    font-size: 13px;
+    cursor: pointer;
+    transition: opacity 0.27s ease, box-shadow 0.3s ease ;
+}
+
+.escoger_mdl {
+    background-color: var(--TxT-Color-01);
+    color: var(--TxT-Color-02);
+    box-shadow: 0 0 30px #99ff0067;
+}
+.cancelar_mdl {
+    background-color: var(--Inside-Input-Border-01);
+    box-shadow: 0 0 20px #3c462a;
+}
+
+.escoger_mdl:hover,
+.cancelar_mdl:hover {
+    opacity: 70%;
+    box-shadow: 0 0 35px #7d9e458a;
+}
+
+.cancelar_mdl:active {
+    opacity: 100%;
+    box-shadow: 0 0 35px rgba(67, 97, 25, 0.774);
+}
+.escoger_mdl:active {
+    opacity: 100%;
+    box-shadow: 0 0 35px #99ff0060;
+}

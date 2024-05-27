@@ -1,0 +1,6 @@
+### Prueba de todos los usuarios
+
+# Todos los asistentes.
+GET http://localhost:3001/asistente/td_asistentes HTTP/1.1
+
+###

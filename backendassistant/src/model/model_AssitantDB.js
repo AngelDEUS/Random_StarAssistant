@@ -18,7 +18,7 @@ db.connect((err) =>{
         console.error('\n\x1b[31m',"Errorr al conectar en la base de datos ",myDatabaseName,'.\n\n', err, '\x1b[0m\n');
         return        
     }
-    console.log(`\x1b[36m     Conexion Existosa a la base de datos. "${nomDatabase}"`, '\x1b[0m\n');
+    console.log(`\x1b[36m     Conexion Existosa a la base de datos "${myDatabaseName}".`, '\x1b[0m\n');
 })
 
 process.on("SIGINT", ()=> {
