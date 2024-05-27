@@ -8,6 +8,11 @@
     --BG-Gradient-Color-2: #ffffff;
     --BG-Gradient-Color-3: #f1ffcb;
 
+    /* MODAL */
+    --Modal-BG-1: #080807;
+    --Modal-BG-2: #080807bd;
+    --Modal-border-2: #bdff4223;
+
     /*BGS Table generator*/
     --BG-Table-Inside-1: #080807;
     --BG-Table-Inside-2: #1d230f;
