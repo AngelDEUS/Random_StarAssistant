@@ -1,0 +1,122 @@
+.home_container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+.content_home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoTop_home {
+    display: flex;
+    gap: 400px;
+    margin-top: 6%;
+}
+
+.left_infoTop_Home {
+    display: flex;
+    flex-direction: column;
+}
+
+.titlHome_1,
+.titlHome_2 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.titlHome_1 {
+    color: var(--TxT-Color-03);
+}
+
+.titlHome_2 {
+    color: var(--TxT-Color-01);
+}
+
+.AprendeMas_btnHome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px 30px;
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    background-color: var(--TxT-Color-01);
+    color: var(--TxT-Color-02);
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 40px;
+    outline: none;
+}
+
+.AprendeMas_btnHome i {
+    font-weight: 800;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+/*Right top*/
+
+.right_infoTop_Home {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    width: 600px;
+}
+
+.consultasGrups_home {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.grupConsulta_sumario{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.sumario_home{
+    color: var(--TxT-Color-01);
+    font-size: 16px;
+}
+
+.text_sumario_home{
+    color: var(--TxT-Color-03);
+    font-size: 10px;
+}
+
+/* SUMARIO DE COSAS QUE PUEDE HACER */
+
+.quepuedeshacercon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 120px;
+    gap: 120px;
+}
+
+.grupCard_quepuedes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 220px;
+    height: 120px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid var(--TxT-Color-01);
+    color: var(--TxT-Color-01);
+    font-size: 18px;
+}
+
+.textCard_home{
+    margin-top: 10px;
+    color: var(--TxT-Color-03);
+}

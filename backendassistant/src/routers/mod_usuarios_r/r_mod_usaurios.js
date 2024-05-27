@@ -13,4 +13,6 @@ rutaUsuarios.get("/buscarAsistente", controladorUsuarios_Asistentes.asistentesGe
 rutaUsuarios.get("/td_lideres", controladorUsuarios_Lideres.td_lideres);
 rutaUsuarios.get("/buscarLider", controladorUsuarios_Lideres.lideresGetID);
 
+rutaUsuarios.get('/generar_equipos', controladorUsuarios_Asistentes.generarEquiposAleatorios);
+
 module.exports = rutaUsuarios;
