@@ -1,0 +1,76 @@
+.inputBuscar_Container {
+    display: flex;
+    align-items: center;
+    width: 93%;
+    margin-bottom: 10px;
+}
+
+.search_input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--Separador-BG);
+    border-radius: 15px 0 0 15px;
+    font-size: 16px;
+    background-color: var(--TxT-Color-02);
+    color: var(--TxT-Color-03);
+    outline: none;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.buscarBTN_modal {
+    font-size: 16px;
+    color: var(--TxT-Color-02);
+    padding: 10px 20px;
+    border: 1px solid var(--TxT-Color-01);
+    border-radius: 0 15px 15px 0;
+    background-color: var(--TxT-Color-01);
+    box-shadow: 0px 0px 15px 0px var(--BoxShadow-Color-01);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+}
+
+.buscarBTN_modal i {
+    margin-right: 5px;
+}
+
+.leader-table {
+    flex-direction: column;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+.leader-table th, .leader-table td {
+    padding: 6px;
+    text-align: left;
+}
+
+.leader-table th {
+    color: var(--TxT-Color-08-White);
+}
+
+.select-button {
+    background-color: var(--TxT-Color-05);
+    color: var(--TxT-Color-06);
+    padding: 8px 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px 0px var(--TxT-Color-07);
+    transition: box-shadow 0.1s ease, background-color 0.2s ease, color 0.3s ease;
+}
+
+.select-button:disabled {
+    box-shadow: 0px 0px 15px 0px var(--TxT-Color-06);
+    background-color: var(--TxT-Color-06);
+    color: var(--TxT-Color-02);
+    cursor: not-allowed;
+}

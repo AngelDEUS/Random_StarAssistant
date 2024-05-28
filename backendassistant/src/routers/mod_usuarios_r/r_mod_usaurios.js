@@ -15,4 +15,5 @@ rutaUsuarios.get("/buscarLider", controladorUsuarios_Lideres.lideresGetID);
 
 rutaUsuarios.get('/generar_equipos', controladorUsuarios_Asistentes.generarEquiposAleatorios);
 
+
 module.exports = rutaUsuarios;

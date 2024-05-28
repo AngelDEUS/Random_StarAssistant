@@ -64,6 +64,7 @@ const asistentesGetID = async (req, res) => {
 }
 
 // Generar equipos aleatorios
+// Controlador en el backend para generar equipos aleatorios
 const generarEquiposAleatorios = async (req, res) => {
     const { numAsistentes } = req.query;
 
@@ -95,17 +96,15 @@ const generarEquiposAleatorios = async (req, res) => {
         }
 
         // Construir equipos con los asistentes seleccionados aleatoriamente
-        const equiposGenerados = [];
-        indicesAleatorios.forEach(indice => {
-            equiposGenerados.push(asistentes[indice]);
-        });
+        const equiposGenerados = indicesAleatorios.map(indice => asistentes[indice]);
 
         res.status(200).json(equiposGenerados);
     } catch (error) {
         console.log(`Error: ${error}`);
-        res.status(500).json({ error: '\n\x1b[31m  ---> Error al generar equipos aleatorios. \x1b[0m\n' });
+        res.status(500).json({ error: 'Error al generar equipos aleatorios.' });
     }
 }
+
 
 
 module.exports = {

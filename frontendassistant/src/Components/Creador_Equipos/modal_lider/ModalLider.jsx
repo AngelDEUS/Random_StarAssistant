@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import './modal_lider.css'
 
 const ModalLider = ({ onClose, onSelectLeader }) => {
-    const listaLideres = [
-        { id: 1, nombre: 'Juan Pérez' },
-        { id: 2, nombre: 'María González' },
-        { id: 3, nombre: 'Pedro López' },
-        // Agrega más líderes según sea necesario
-    ];
-
     const [searchTerm, setSearchTerm] = useState('');
-    const [filteredLideres, setFilteredLideres] = useState(listaLideres);
+    const [filteredLideres, setFilteredLideres] = useState([]);
     const [selectedLeader, setSelectedLeader] = useState(null);
+
+    console.log('lider seleccionado: ', selectedLeader);
+    useEffect(() => {
+        fetchLeaders();
+    }, []);
+
+    const fetchLeaders = async () => {
+        try {
+            const response = await fetch('http://localhost:3001/asistente/td_lideres');
+            const data = await response.json();
+            setFilteredLideres(data);
+        } catch (error) {
+            console.error('Error al buscar los lideres:', error);
+        }
+    };
 
     const handleLeaderChange = (leader) => {
         setSelectedLeader(leader);
@@ -25,8 +34,9 @@ const ModalLider = ({ onClose, onSelectLeader }) => {
 
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
-        const filtered = listaLideres.filter((lider) =>
-            lider.nombre.toLowerCase().includes(e.target.value.toLowerCase())
+        const filtered = filteredLideres.filter((lider) =>
+            lider.Nombre.toLowerCase().includes(e.target.value.toLowerCase()) ||
+            lider.Apellido.toLowerCase().includes(e.target.value.toLowerCase())
         );
         setFilteredLideres(filtered);
     };
@@ -37,13 +47,19 @@ const ModalLider = ({ onClose, onSelectLeader }) => {
                 <div className="up_modal">
                     <h3 className="title_modal_h3">Seleccionar un líder</h3>
                     <div className="modal_divisor"></div>
-                    <input
-                        type="text"
-                        className="search_input"
-                        placeholder="Buscar líder..."
-                        value={searchTerm}
-                        onChange={handleSearchChange}
-                    />
+                    <div className="inputBuscar_Container">
+                        <input
+                            type="text"
+                            className="search_input"
+                            placeholder="Buscar líder..."
+                            value={searchTerm}
+                            onChange={handleSearchChange}
+                        />
+                        <button className="buscarBTN_modal">
+                            <i className="bi bi-search"></i>
+                            Limpiar
+                        </button>
+                    </div>
                 </div>
                 <div className="cuerpo_modal">
                     <div className="modal_divisor"></div>
@@ -52,19 +68,21 @@ const ModalLider = ({ onClose, onSelectLeader }) => {
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
+                                <th>Apellidos</th>
                                 <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
                             {filteredLideres.map((lider) => (
-                                <tr key={lider.id}>
-                                    <td>{lider.id}</td>
-                                    <td>{lider.nombre}</td>
+                                <tr key={lider.ID}>
+                                    <td>{lider.ID}</td>
+                                    <td>{lider.Nombre}</td>
+                                    <td>{lider.Apellido}</td>
                                     <td>
                                         <button
                                             className="select-button"
                                             onClick={() => handleLeaderChange(lider)}
-                                            disabled={selectedLeader && selectedLeader.id === lider.id}
+                                            disabled={selectedLeader && selectedLeader.ID === lider.ID}
                                         >
                                             Seleccionar
                                         </button>

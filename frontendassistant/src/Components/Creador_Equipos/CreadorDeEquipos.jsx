@@ -17,16 +17,31 @@ const CreadorDeEquipos = () => {
     const [presupuesto, setPresupuesto] = useState('');
     const [numAsistentes, setNumAsistentes] = useState('');
     const [direccion, setDireccion] = useState('');
-    const [lider, setLider] = useState('');
     const [equiposGenerados, setEquiposGenerados] = useState([]);
+    const [listaLideres, setListaLideres] = useState([]);
 
     const [isModalLiderOpen, setIsModalLiderOpen] = useState(false);
+    const [selectedLeader, setSelectedLeader] = useState(null);
 
-    // Manejador de eventos para abrir el modal de líderes
+    const fetchLeaders = async () => {
+        try {
+            const response = await fetch('http://localhost:3001/asistente/td_lideres');
+            const data = await response.json();
+            setListaLideres(data);
+        } catch (error) {
+            console.error('Error fetching leaders:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchLeaders();
+    }, []);
+
+    console.log('---> Lider seleccionado desde el creador de equipos: ', selectedLeader);
+    // Manejador de eventos __ para abrir el modal de líderes
     const handleOpenModalLider = () => {
         setIsModalLiderOpen(true);
     };
-
 
     const handleOpenModal = () => {
         setIsModalOpen(true);
@@ -55,16 +70,16 @@ const CreadorDeEquipos = () => {
 
     const addSlashToDate = (value, setState) => {
         const formattedValue = value
-            .replace(/\D/g, '') // Eliminar cualquier carácter que no sea un número
-            .replace(/^(\d{2})/, '$1/') // Añadir barra después de los primeros dos dígitos
-            .replace(/^(\d{2}\/\d{2})/, '$1/'); // Añadir barra después del cuarto dígito
+            .replace(/\D/g, '') 
+            .replace(/^(\d{2})/, '$1/') 
+            .replace(/^(\d{2}\/\d{2})/, '$1/'); 
         setState(formattedValue);
     };
 
     const addColonToTime = (value, setState, inputType) => {
         const formattedValue = value
-            .replace(/\D/g, '') // Eliminar cualquier carácter que no sea un número
-            .replace(/^(\d{2})/, '$1:'); // Añadir dos puntos después de los primeros dos dígitos
+            .replace(/\D/g, '')
+            .replace(/^(\d{2})/, '$1:');
         const timeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
         if (!timeRegex.test(formattedValue) && formattedValue.length === 5) {
             const errorMessage = inputType === 'start' ? 'Hora de inicio inválida. Use el formato HH:MM.' : 'Hora de fin inválida. Use el formato HH:MM.';
@@ -124,7 +139,7 @@ const CreadorDeEquipos = () => {
         const diffHours = Math.floor(diffMilliseconds / (1000 * 60 * 60));
         const diffMinutes = Math.floor((diffMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
 
-        setTimeDifference({ hours: diffHours, minutes: diffMinutes });
+        setTimeDifference({ horas: diffHours, minutos: diffMinutes });
         Swal.fire({
             title: 'Diferencia de tiempo',
             text: `Horas: ${diffHours}, Minutos: ${diffMinutes}`,
@@ -158,42 +173,72 @@ const CreadorDeEquipos = () => {
         setDireccion(e.target.value);
     };
 
-    const handleLiderChange = (e) => {
-        setLider(e.target.value);
-    };
+
 
     const validateFields = () => {
         if (selectedEventType === '') {
             showErrorAlert('Debe seleccionar un tipo de evento.');
             return false;
         }
-
+    
         if (!validateDateTime(startDate, startTime) || !validateDateTime(endDate, endTime)) {
             showErrorAlert('Fecha u hora inválida. Por favor use el formato DD/MM/AAAA y HH:MM.');
             return false;
         }
-
+    
         if (direccion.trim() === '') {
             showErrorAlert('La dirección no puede estar vacía.');
             return false;
         }
-
+    
         if (presupuesto === '' || parseInt(presupuesto, 10) < 0) {
             showErrorAlert('El presupuesto no puede ser menor que cero.');
             return false;
         }
-
-        if (lider.trim() === '') {
-            showErrorAlert('Debe ingresar el nombre del líder.');
-            return false;
-        }
-
+    
         if (numAsistentes === '' || parseInt(numAsistentes, 10) < 0) {
             showErrorAlert('El número de asistentes no puede ser menor que cero.');
             return false;
         }
-
+    
+        if (!selectedLeader || !selectedLeader.Nombre || !selectedLeader.Apellido) {
+            showErrorAlert('Debe seleccionar un líder válido.');
+            return false;
+        }
+    
         return true;
+    };
+    const handleGenerarEquipos = async () => {
+        try {
+            if (numAsistentes) {
+                const response = await fetch(`http://localhost:3001/asistente/generar_equipos?numAsistentes=${numAsistentes}`);
+                const data = await response.json();
+
+                const lider = {
+                    id_lider: selectedLeader.ID,
+                    nombres: selectedLeader.Nombre,
+                    apellidos: selectedLeader.Apellido,
+                };
+
+                const equipo = {
+                    tiempoCalculado: timeDifference,
+                    tipoEvento: selectedEventType,
+                    duracionEvento: `${startDate} ${startTime} - ${endDate} ${endTime}`,
+                    presupuestoEvento: presupuesto,
+                    lugarEvento: direccion,
+                    fechaInicio: startDate,
+                    horaInicio: startTime,
+                    fechaCierre: endDate,
+                    horaCierre: endTime,
+                    lider: lider,
+                    asistentes: data
+                };
+
+                setEquiposGenerados(prevEquipos => [...prevEquipos, equipo]); // Agregar nuevo equipo al array existente
+            }
+        } catch (error) {
+            console.error('Error al generar equipos:', error);
+        }
     };
 
     const handleCrearGrupo = async () => {
@@ -211,52 +256,13 @@ const CreadorDeEquipos = () => {
         }
     };
 
+    // const handleBorrarEquipos = () => {
+    //     setEquiposGenerados([]);
+    // };
+    
 
-    const handleGenerarEquipos = async () => {
-        try {
-            if (numAsistentes) {
-                const equipos = Array.from({ length: numAsistentes }, (_, idx) => {
-                    const lider = {
-                        id_lider: Math.floor(Math.random() * 1000) + 1,
-                        nombres: `Líder ${idx + 1}`,
-                        apellidos: `Apellido ${idx + 1}`
-                    };
-
-                    const asistentes = Array.from({ length: numAsistentes }, (_, idx) => ({
-                        id: Math.floor(Math.random() * 1000) + 1,
-                        nombres: `Asistente ${idx + 1}`,
-                        apellidos: `Apellido ${idx + 1}`,
-                        correo: `asistente${idx + 1}@example.com`,
-                        telefono: `+123456789${idx + 1}`
-                    }));
-
-                    return {
-                        tiempoCalculado: timeDifference,
-                        tipoEvento: selectedEventType,
-                        duracionEvento: `${startDate} ${startTime} - ${endDate} ${endTime}`,
-                        presupuestoEvento: presupuesto,
-                        lugarEvento: direccion,
-                        fechaInicio: startDate,
-                        horaInicio: startTime,
-                        fechaCierre: endDate,
-                        horaCierre: endTime,
-                        lider: lider, // Aquí asigna correctamente el líder
-                        asistentes: asistentes // Aquí asigna correctamente los asistentes
-                    };
-                });
-
-                setEquiposGenerados(equipos);
-            }
-        } catch (error) {
-            console.error('Error al generar equipos:', error);
-            setEquiposGenerados([]);
-        }
-    };
-
-    const [selectedLeader, setSelectedLeader] = useState(null);
     const handleSelectLeader = (leader) => {
         setSelectedLeader(leader);
-        setLider(leader.nombre); // Mostrar el nombre del líder seleccionado en el input
     };
 
     return (
@@ -267,10 +273,11 @@ const CreadorDeEquipos = () => {
                     onSelectEvent={handleSelectEventType}
                 />
             )}
-          {isModalLiderOpen && (
+            {isModalLiderOpen && (
                 <ModalLider
                     onClose={() => setIsModalLiderOpen(false)}
                     onSelectLeader={handleSelectLeader}
+                    listaLideres={listaLideres}
                 />
             )}
             <main className="main-content">
@@ -344,6 +351,7 @@ const CreadorDeEquipos = () => {
                                         placeholder="DD/MM/AAAA"
                                         value={startDate}
                                         onChange={handleStartDateChange}
+                                        style={{width: '85px'}}
                                     />
                                     <span className='sepHoraFecha'>-</span>
                                     <input
@@ -361,6 +369,7 @@ const CreadorDeEquipos = () => {
                                         placeholder="DD/MM/AAAA"
                                         value={endDate}
                                         onChange={handleEndDateChange}
+                                        style={{width: '85px'}}
                                     />
                                     <span className='sepHoraFecha'>-</span>
                                     <input
@@ -389,8 +398,9 @@ const CreadorDeEquipos = () => {
                                 />
                             </div>
                             <div className="form-item_right" onClick={handleOpenModalLider}>
-                                <span >{lider || 'Seleccionar líder'}</span>
+                                <span>{selectedLeader ? `${selectedLeader.Nombre} ${selectedLeader.Apellido}` : 'Seleccionar líder'}</span>
                             </div>
+
                             <div className="form-item_right">
                                 <input
                                     type="number"
@@ -428,8 +438,10 @@ const CreadorDeEquipos = () => {
                         <i className="bi bi-chevron-compact-down"></i>
                     </div>
                 </section>
-                <section className='TablaGenerada_Creador'>
-                    <TablaGenerada equipos={equiposGenerados} />
+                <section className='TablaGenerada_Creador'>                   
+                {equiposGenerados.map((equipo, index) => (
+                        <TablaGenerada key={index} equipos={[equipo]} />
+                    ))}
                 </section>
             </main>
         </>
