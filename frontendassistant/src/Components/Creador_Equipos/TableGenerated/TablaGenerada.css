@@ -7,7 +7,6 @@
 /*--------- HEADER ---------*/
 
 
-
 .Header_TabGen,
 .Header_TabGen2 {
     display: flex;
@@ -156,6 +155,7 @@
     display: flex;
     padding: 15px 0;
     background-color: var(--GenTab-BG-03);
+    width: 250px;
 }
 
 .text_SS {

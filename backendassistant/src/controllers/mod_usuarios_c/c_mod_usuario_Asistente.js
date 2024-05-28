@@ -63,7 +63,52 @@ const asistentesGetID = async (req, res) => {
     }
 }
 
+// Generar equipos aleatorios
+// Controlador en el backend para generar equipos aleatorios
+const generarEquiposAleatorios = async (req, res) => {
+    const { numAsistentes } = req.query;
+
+    try {
+        // Consultar todos los asistentes de la base de datos
+        const [asistentes] = await db.query(`
+            SELECT 
+                ID_Asistente_PK AS 'ID_Asistente',
+                Nombres_Asistente AS 'Nombres',
+                Apellidos_Asistente AS 'Apellidos',
+                Correo_Asistente AS 'Correo',
+                Telefono_Asistente AS 'Telefono'
+            FROM 
+                Asistente;
+        `);
+
+        // Verificar que hay suficientes asistentes en la base de datos
+        if (asistentes.length < numAsistentes) {
+            return res.status(400).json({ error: 'No hay suficientes asistentes en la base de datos.' });
+        }
+
+        // Obtener índices aleatorios para seleccionar asistentes únicos
+        const indicesAleatorios = [];
+        while (indicesAleatorios.length < numAsistentes) {
+            const indice = Math.floor(Math.random() * asistentes.length);
+            if (!indicesAleatorios.includes(indice)) {
+                indicesAleatorios.push(indice);
+            }
+        }
+
+        // Construir equipos con los asistentes seleccionados aleatoriamente
+        const equiposGenerados = indicesAleatorios.map(indice => asistentes[indice]);
+
+        res.status(200).json(equiposGenerados);
+    } catch (error) {
+        console.log(`Error: ${error}`);
+        res.status(500).json({ error: 'Error al generar equipos aleatorios.' });
+    }
+}
+
+
+
 module.exports = {
     td_asistentes,
     asistentesGetID,
+    generarEquiposAleatorios,
 }

@@ -1,27 +1,49 @@
-import React from 'react'
-import './modal_evento.css'
+import React, { useState } from 'react';
+import './modal_evento.css';
 
-const Modal_evento = () => {
+const ModalEvento = ({ onClose, onSelectEvent }) => {
+    const lista_Eventos = [
+        'Conferencia',
+        'Sociales',
+        'Administración central y/o local',
+        'Deportivos',
+        'Empresa y corporativos',
+        'Causa y de recaudación de fondos',
+        'Espectáculos y eventos de ocio',
+        'Reuniones o convenciones'
+    ];
 
-    const lista_Eventos = ['Conferencia','sociales', 
-    'administración central y/o local', 'deportivos', 
-    'empresa y corporativos', 'causa y de recaudación de fondos', 
-    'Espectáculos y eventos de ocio', 'Reuniones o convenciones']
+    const [selectedEvent, setSelectedEvent] = useState('');
+
+    const handleEventChange = (event) => {
+        setSelectedEvent(event.target.value);
+    };
+
+    const handleSelect = () => {
+        onSelectEvent(selectedEvent);
+    };
 
     return (
-        <div className='conainer_Modal'>
+        <div className='container_Modal'>
             <div className="modal_center">
                 <div className="up_modal">
                     <h3 className="title_modal_h3">Escoja un tipo de evento</h3>
                     <div className="modal_divisor"></div>
-                    <span className="span_modal_text">Por favor Escoja un tipo de evento de la lista y de clic en el botón de escoger.</span>
+                    <span className="span_modal_text">Por favor escoja un tipo de evento de la lista y haga clic en el botón de escoger.</span>
                 </div>
                 <div className="cuerpo_modal">
                     <div className="modal_divisor"></div>
                     <div className="checkButtons_modal">
                         {lista_Eventos.map((evento, index) => (
                             <label key={index} className="radioLabel">
-                                <input type="radio" name="tipo_evento" value={evento} className="opModalEvento" />
+                                <input
+                                    type="radio"
+                                    name="tipo_evento"
+                                    value={evento}
+                                    className="opModalEvento"
+                                    checked={selectedEvent === evento}
+                                    onChange={handleEventChange}
+                                />
                                 <span className="customRadio"></span>
                                 {evento}
                             </label>
@@ -31,13 +53,13 @@ const Modal_evento = () => {
                 <div className="bottom_modal">
                     <div className="modal_divisor"></div>
                     <div className="buttons_modal">
-                        <button className='btn_Modal_ escoger_mdl'>Escoger Tipo de evento</button>
-                        <button className='btn_Modal_ cancelar_mdl'>Cancelar</button>
+                        <button className='btn_Modal_ escoger_mdl' onClick={handleSelect}>Escoger Tipo de evento</button>
+                        <button className='btn_Modal_ cancelar_mdl' onClick={onClose}>Cancelar</button>
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Modal_evento
+export default ModalEvento;

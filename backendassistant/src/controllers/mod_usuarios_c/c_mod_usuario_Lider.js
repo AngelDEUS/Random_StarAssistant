@@ -10,11 +10,9 @@ const td_lideres = async (req, res) => {
         console.log("\n-----> Obteniendo datos de Líderes...");
         const [result] = await db.query(`
         SELECT 
-            ID_Lider_PK AS 'ID_Lider',
-            Nombres_Lider AS 'Nombres',
-            Apellidos_Lider AS 'Apellidos',
-            Correo_Lider AS 'Correo',
-            Telefono_Lider AS 'Telefono'
+            ID_Lider_PK AS 'ID',
+            Nombres_Lider AS 'Nombre',
+            Apellidos_Lider AS 'Apellido'
         FROM 
             Lider;
         `);
@@ -24,6 +22,7 @@ const td_lideres = async (req, res) => {
         res.status(500).json({ error: '\n\x1b[31m  ---> Error al obtener líderes. \x1b[0m\n' });
     }
 }
+
 
 // ---> Consultar Líder por ID o Nombre.
 const lideresGetID = async (req, res) => {
